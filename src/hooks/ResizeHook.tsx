@@ -14,20 +14,25 @@ interface IScreenProviderProps {
 const ScreenContext = createContext<IWindowSize | undefined>(undefined);
 
 export const ScreenProvider: React.FC<IScreenProviderProps> = ({ children }) => {
-    const [windowSize, setWindowSize] = useState<IWindowSize>({ width: window.innerWidth, height: window.innerHeight });
+    const [windowSize, setWindowSize] = useState<IWindowSize>({
+        width: typeof window !== 'undefined' ? window.innerWidth : 0,
+        height: typeof window !== 'undefined' ? window.innerHeight : 0,
+    });
 
     useEffect(() => {
-        const handleResize = () => {
-            setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-        };
+        if (typeof window !== 'undefined') {
+            const handleResize = () => {
+                setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+            };
 
-        window.addEventListener('resize', handleResize);
-        window.addEventListener('orientationchange', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
+            window.addEventListener('resize', handleResize);
             window.addEventListener('orientationchange', handleResize);
-        };
+
+            return () => {
+                window.removeEventListener('resize', handleResize);
+                window.addEventListener('orientationchange', handleResize);
+            };
+        }
     }, []);
 
     return <ScreenContext.Provider value={windowSize}>{children}</ScreenContext.Provider>;

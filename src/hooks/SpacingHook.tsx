@@ -7,13 +7,13 @@ interface SideSpacing {
     right: string;
 }
 
-const useSideSpacing = () => {
+const useSideSpacing = (): SideSpacing => {
     const [spacing, setSpacing] = useState<SideSpacing>({
         left: '',
         right: '',
     });
 
-    const debounce = <F extends (...args: any[]) => any>(func: F, delay: number) => {
+    const debounce = <F extends (...args: unknown[]) => unknown>(func: F, delay: number) => {
         let timerId: ReturnType<typeof setTimeout>;
         return (...args: Parameters<F>) => {
             clearTimeout(timerId);
@@ -42,14 +42,16 @@ const useSideSpacing = () => {
     const debouncedUpdateSpacing = debounce(updateSpacing, 300);
 
     useEffect(() => {
-        updateSpacing();
-        window.addEventListener('resize', debouncedUpdateSpacing);
-        window.addEventListener('orientationchange', debouncedUpdateSpacing);
+        if (typeof window !== 'undefined') {
+            updateSpacing();
+            window.addEventListener('resize', debouncedUpdateSpacing);
+            window.addEventListener('orientationchange', debouncedUpdateSpacing);
 
-        return () => {
-            window.removeEventListener('resize', debouncedUpdateSpacing);
-            window.removeEventListener('orientationchange', debouncedUpdateSpacing);
-        };
+            return () => {
+                window.removeEventListener('resize', debouncedUpdateSpacing);
+                window.removeEventListener('orientationchange', debouncedUpdateSpacing);
+            };
+        }
     }, [debouncedUpdateSpacing, updateSpacing]);
 
     return spacing;

@@ -11,18 +11,22 @@ import ComponentSkeleton from '@/components/loading/ComponentSkeleton';
 import Footer from '@/components/footer/Footer';
 
 export const ClosureChart = dynamic(() => import('@/components/charts/ClosureChart'), {
+    ssr: false,
     loading: () => <ComponentSkeleton />,
 });
 
 export const InterestChart = dynamic(() => import('@/components/charts/InterestChart'), {
+    ssr: false,
     loading: () => <ComponentSkeleton />,
 });
 
 export const ReasonChart = dynamic(() => import('@/components/charts/ReasonChart'), {
+    ssr: false,
     loading: () => <ComponentSkeleton />,
 });
 
 export const SwiperTeam = dynamic(() => import('./Team'), {
+    ssr: false,
     loading: () => <ComponentSkeleton />,
 });
 

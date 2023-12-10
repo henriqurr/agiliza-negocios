@@ -17,7 +17,7 @@ const NotificationContext = createContext<NotificationContextProps>({
     isVisible: false,
 });
 
-export const useNotification = () => useContext(NotificationContext);
+export const useNotification = (): NotificationContextProps => useContext(NotificationContext);
 
 export const NotificationProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const [notificationData, setNotificationData] = useState<NotificationProps>({

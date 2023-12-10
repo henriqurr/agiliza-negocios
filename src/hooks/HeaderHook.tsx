@@ -12,23 +12,25 @@ export const HeaderScrollProvider: FC<IHeaderScrollProviderProps> = ({ children 
     const [scrolled, setScrolled] = useState<boolean>(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            const scrollPos = window.scrollY;
+        if (typeof window !== 'undefined') {
+            const handleScroll = () => {
+                const scrollPos = window.scrollY;
 
-            if (scrollPos > 50) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
+                if (scrollPos > 50) {
+                    setScrolled(true);
+                } else {
+                    setScrolled(false);
+                }
+            };
 
-        handleScroll();
+            handleScroll();
 
-        window.addEventListener('scroll', handleScroll);
+            window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+            };
+        }
     });
 
     return <HeaderScrollContext.Provider value={scrolled}>{children}</HeaderScrollContext.Provider>;
