@@ -1,0 +1,80 @@
+.notificationWrapper {
+    align-items: center;
+    border-radius: 20px;
+    display: flex;
+    color: #FFF;
+    font-size: 0.875rem;
+    font-weight: bold;
+    gap: 10px;
+    min-height: 47px;
+    min-width: 200px;
+    opacity: 0;
+    overflow: hidden;
+    padding: 10px 30px;
+    position: fixed;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+    @include soft-transition;
+
+    .iconWrapper {
+        padding-right: 10px;
+        border-right: 1px solid #FFF;
+
+        svg {
+            font-size: 1.6rem;
+        }
+    }
+
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1200;
+    }
+
+    &.success {
+        background: rgba(255, 255, 255, 0.8);
+    }
+
+    &.error {
+        background: rgba(226, 26, 11, 0.8);
+    }
+
+    &.loading {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1200;
+    }
+
+    &.bottom {
+        bottom: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.top {
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &.topLeft {
+        top: 100px;
+        left: 100px;
+    }
+
+    &.topRight {
+        top: 100px;
+        right: 100px;
+    }
+
+    &.bottomLeft {
+        bottom: 100px;
+        left: 100px;
+    }
+
+    &.bottomRight {
+        bottom: 100px;
+        right: 100px;
+    }
+}

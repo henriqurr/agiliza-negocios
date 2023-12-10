@@ -1,0 +1,92 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    button {
+        margin-top: 20px;
+    }
+}
+
+.successBox {
+    padding-bottom: 30px;
+
+    span {
+        align-items: center;
+        display: flex;
+        color: #000;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 150%;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 40px;
+
+        :global(.iconify) {
+            color: #000;
+            font-size: 1.5rem;
+        }
+    }
+
+    p {
+        color: #000;
+        font-size: .875rem;
+        margin-top: 15px;
+        opacity: 0;
+        text-align: center;
+    }
+
+    .fade {
+        animation: fade ease forwards 1s;
+        opacity: 0;
+
+        &:nth-child(2) {
+            animation-delay: 1s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 2.5s;
+        }
+
+        &:last-child {
+            animation-delay: 3.5s;
+            margin-top: 75px;
+        }
+    }
+
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .successBox {
+        padding-bottom: 0;
+
+        span {
+            font-size: 1.25rem;
+
+            :global(.iconify) {
+                font-size: 2rem;
+            }
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        .fade {
+            &:last-child {
+                margin-top: 100px;
+            }
+        }
+    }
+}

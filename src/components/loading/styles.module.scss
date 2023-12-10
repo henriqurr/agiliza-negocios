@@ -1,0 +1,27 @@
+.loadingWrapper {
+    align-items: center;
+    display: flex;
+    height: 32px;
+    justify-content: center;
+    margin: auto;
+    width: 32px;
+
+    :glboal(.iconify) {
+        color: #000;
+        font-size: 32px;
+    }
+}
+
+.pageLoading {
+    align-items: center;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+
+    :glboal(.iconify) {
+        color: #FFF;
+        font-size: 32px;
+    }
+}

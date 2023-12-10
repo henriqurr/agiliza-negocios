@@ -1,0 +1,21 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span {
+    font-family: $fontFamilyTitle;
+}
+
+b {
+    font-weight: 800;
+}
+
+.error-message {
+    color: $redColor;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 100%;
+    margin: 10px 0 -10px;
+}

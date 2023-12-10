@@ -1,0 +1,26 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+
+    button {
+        margin-top: 20px;
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        span {
+            align-items: center;
+            color: #000;
+            display: inline-flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+    }
+
+    @media (min-width: 1200px) {}
+}

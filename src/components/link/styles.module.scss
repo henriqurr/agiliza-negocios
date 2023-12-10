@@ -1,0 +1,20 @@
+.linkModule {
+    align-items: center;
+    color: #000;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: .875rem;
+    font-weight: 700;
+    gap: 5px;
+    line-height: 100%;
+    width: fit-content;
+    @include soft-transition;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 1rem;
+    }
+}

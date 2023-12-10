@@ -1,0 +1,45 @@
+.header {
+    background-color: #000000c7;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 44px #00000026;
+    left: 50%;
+    top: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: fixed;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 1000;
+
+    .content {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .logo {
+            display: flex;
+
+            img {
+                filter: brightness(0) invert(1);
+                height: 48px;
+            }
+        }
+
+        .links {
+            align-items: center;
+            display: flex;
+            gap: 10px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .content {
+            .logo {
+                img {
+                    height: 82px;
+                }
+            }
+        }
+    }
+}
