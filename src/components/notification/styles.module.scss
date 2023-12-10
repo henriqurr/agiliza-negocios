@@ -7,7 +7,7 @@
     font-weight: bold;
     gap: 10px;
     min-height: 50px;
-    min-width: 150px;
+    min-width: 170px;
     opacity: 0;
     overflow: hidden;
     padding: 10px 30px;
@@ -16,6 +16,10 @@
     visibility: hidden;
     z-index: -1;
     @include soft-transition;
+
+    @media (min-width: 1200px) {
+        min-width: 190px;
+    }
 
     .iconWrapper {
         padding-right: 10px;
