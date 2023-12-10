@@ -126,14 +126,6 @@ export default function Home(): ReactNode {
                                     <ReasonChart />
                                 </div>
                             </div>
-
-                            <div className={styles.card}>
-                                <h6 className={styles.title}>Motivo</h6>
-
-                                <div className={styles.content}>
-                                    <ReasonChart />
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
