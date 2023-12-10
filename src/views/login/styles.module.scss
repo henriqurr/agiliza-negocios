@@ -24,7 +24,8 @@
         img {
             height: 72px;
             margin: 0 auto;
-            width: fit-content !important;
+            object-fit: contain;
+            width: fit-content;
         }
 
         @media (min-width: 1200px) {

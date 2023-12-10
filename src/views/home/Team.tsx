@@ -25,27 +25,32 @@ interface TeamProps {
 const team: TeamProps[] = [
     {
         name: 'Henrique Rodrigues',
-        role: 'Developer',
+        role: 'Desenvolvimento',
         image: '/assets/images/henrique.jpeg',
     },
     {
         name: 'Diego Simonetti',
-        role: 'Negócios',
+        role: 'Gestor técnico',
         image: '/assets/images/diego.jpeg',
     },
     {
         name: 'Daniela',
-        role: 'Negócios',
+        role: 'Marketing',
         image: '/assets/images/daniela.jpeg',
     },
     {
+        name: `Joyce`,
+        role: 'Gestora financeira',
+        image: '/assets/images/joyce.png',
+    },
+    {
         name: `Giuliano D'Avila`,
-        role: 'Negócios',
+        role: 'Gestor comercial',
         image: '/assets/images/giuliano.jpeg',
     },
     {
         name: `Alisson Melo`,
-        role: 'Negócios',
+        role: 'Representante comercial',
         image: '/assets/images/alisson.jpeg',
     },
 ];
