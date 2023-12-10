@@ -7,15 +7,15 @@ const nextConfig = {
         @import "~@styles/base/mixins.scss";
         `,
     },
-    async rewrites() {
-        return [
-            // Inscrição
-            {
-                source: '/inscricao',
-                destination: '/subscribe',
-            },
-        ]
-    },
+    // async rewrites() {
+    //     return [
+    //         // Inscrição
+    //         {
+    //             source: '/inscricao',
+    //             destination: '/subscribe',
+    //         },
+    //     ]
+    // },
 }
 
 module.exports = nextConfig
