@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 import IconifyIcon from '@/components/iconify/IconifyIcon';
@@ -15,15 +17,17 @@ const Notification: React.FC = () => {
 
     return (
         <div
-            className={`${styles.toastWrapper} ${notificationData.state ? styles[notificationData.state] : ''} ${
+            className={`${styles.notificationWrapper} ${notificationData.state ? styles[notificationData.state] : ''} ${
                 styles.visible
             } ${styles[notificationData.position ?? 'bottom']}`}>
-            <div className={styles.iconWrapper}>
-                {notificationData.state === 'success' && (
-                    <IconifyIcon icon='line-md:circle-to-confirm-circle-transition' />
-                )}
-                {notificationData.state === 'error' && <IconifyIcon icon='line-md:close-circle' />}
-            </div>
+            {notificationData.state !== 'warning' && (
+                <div className={styles.iconWrapper}>
+                    {notificationData.state === 'success' && (
+                        <IconifyIcon icon='line-md:circle-to-confirm-circle-transition' />
+                    )}
+                    {notificationData.state === 'error' && <IconifyIcon icon='line-md:close-circle' />}
+                </div>
+            )}
 
             {notificationData.text}
         </div>

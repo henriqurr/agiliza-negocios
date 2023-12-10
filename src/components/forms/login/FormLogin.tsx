@@ -1,13 +1,13 @@
 'use client';
 
 import React, { ChangeEvent, FC, FormEvent, FormEventHandler, useState } from 'react';
-import Input from '@/components/input/Input';
+import { useNotification } from '@/providers/NotificationProvider';
+import Link from 'next/link';
 
+import Input from '@/components/input/Input';
 import Button from '@/components/button/Button';
 
 import styles from './styles.module.scss';
-import Link from 'next/link';
-
 import styleLink from '@/components/link/styles.module.scss';
 
 interface DataProps {
@@ -24,6 +24,8 @@ const FormLogin: FC = () => {
         user: '',
         password: '',
     });
+
+    const { setNotification } = useNotification();
 
     const isSuccess = state === 'success';
     const isError = state === 'error';
@@ -50,31 +52,35 @@ const FormLogin: FC = () => {
     const handleSubmit = async (event: FormEvent) => {
         try {
             event.preventDefault();
-            setInvalidFields({});
-            setState('loading');
 
-            // const response = await fetch('/api/sendEmail', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(data),
-            // });
+            if (state !== 'loading') {
+                setInvalidFields({});
+                setState('loading');
 
-            // const dataResponse = await response.json();
-            // console.log(dataResponse.message);
+                // const response = await fetch('/api/sendEmail', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify(data),
+                // });
 
-            // if (response.ok) {
-            //     setState('success');
-            // } else {
-            //     setState('error');
-            // }
+                // const dataResponse = await response.json();
+                // console.log(dataResponse.message);
 
-            await new Promise((resolveInner) => {
-                setTimeout(resolveInner, 3000);
-            });
+                // if (response.ok) {
+                //     setState('success');
+                // } else {
+                //     setState('error');
+                // }
 
-            setState('success');
+                await new Promise((resolveInner) => {
+                    setTimeout(resolveInner, 3000);
+                });
+
+                setNotification({ state: 'warning', text: 'Disponível em breve...', position: 'top' });
+                setState('');
+            }
         } catch (error) {
             console.error('Erro ao enviar o formulário:', error);
             setState('error');

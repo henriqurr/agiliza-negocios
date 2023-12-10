@@ -10,22 +10,22 @@ import HeaderNav from '@/components/header-nav/HeaderNav';
 import ComponentSkeleton from '@/components/loading/ComponentSkeleton';
 import Footer from '@/components/footer/Footer';
 
-export const ClosureChart = dynamic(() => import('@/components/charts/ClosureChart'), {
+const ClosureChart = dynamic(() => import('@/components/charts/ClosureChart'), {
     ssr: false,
     loading: () => <ComponentSkeleton />,
 });
 
-export const InterestChart = dynamic(() => import('@/components/charts/InterestChart'), {
+const InterestChart = dynamic(() => import('@/components/charts/InterestChart'), {
     ssr: false,
     loading: () => <ComponentSkeleton />,
 });
 
-export const ReasonChart = dynamic(() => import('@/components/charts/ReasonChart'), {
+const ReasonChart = dynamic(() => import('@/components/charts/ReasonChart'), {
     ssr: false,
     loading: () => <ComponentSkeleton />,
 });
 
-export const SwiperTeam = dynamic(() => import('./Team'), {
+const SwiperTeam = dynamic(() => import('./Team'), {
     ssr: false,
     loading: () => <ComponentSkeleton />,
 });
@@ -135,10 +135,10 @@ export default function Home(): ReactNode {
                     <div data-container>
                         <div className={styles.content}>
                             <div className={styles.information}>
-                                <h4 className={styles.title}>Nosso time</h4>
+                                <h4 className={styles.title}>Nossa equipe</h4>
                                 <p>
-                                    Possuímos um time sólido e capacitado para lidar com toda a burocrácia do seu
-                                    negócio.
+                                    Possuímos uma equipe dinâmica e multi-diciplinar sólido e capacitado para lidar com
+                                    toda a burocrácia do seu negócio.
                                 </p>
                             </div>
                         </div>

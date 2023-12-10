@@ -58,7 +58,7 @@ export const ReasonChart: React.FC = () => {
                     {
                         label: 'Motivo',
                         data: [28, 68],
-                        backgroundColor: ['gold', 'black'],
+                        backgroundColor: ['goldenrod', 'black'],
                     },
                 ],
             }}

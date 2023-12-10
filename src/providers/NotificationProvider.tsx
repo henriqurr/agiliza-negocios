@@ -5,15 +5,15 @@ import { NotificationProps } from '@/components/notification/types';
 
 interface NotificationContextProps {
     notificationData: NotificationProps;
-    setToast: (data: NotificationProps) => void;
-    hideToast: () => void;
+    setNotification: (data: NotificationProps) => void;
+    hideNotification: () => void;
     isVisible: boolean;
 }
 
 const NotificationContext = createContext<NotificationContextProps>({
     notificationData: { state: 'hidden', text: '', position: 'bottom' },
-    setToast: () => {},
-    hideToast: () => {},
+    setNotification: () => {},
+    hideNotification: () => {},
     isVisible: false,
 });
 
@@ -28,7 +28,7 @@ export const NotificationProvider: FC<{ children: ReactNode }> = ({ children }) 
     const [isVisible, setIsVisible] = useState<boolean>(false);
     const [timer, setTimer] = useState<NodeJS.Timeout | null>(null);
 
-    const hideToast = useCallback(() => {
+    const hideNotification = useCallback(() => {
         setIsVisible(false);
         setNotificationData({ state: 'hidden', text: '', position: 'bottom' });
         if (timer) {
@@ -36,22 +36,22 @@ export const NotificationProvider: FC<{ children: ReactNode }> = ({ children }) 
         }
     }, [timer]);
 
-    const setToast = useCallback(
+    const setNotification = useCallback(
         (data: NotificationProps) => {
-            hideToast();
+            hideNotification();
 
             setTimeout(() => {
                 setNotificationData({ ...data, state: data.state });
                 setIsVisible(true);
 
                 const newTimer = setTimeout(() => {
-                    hideToast();
+                    hideNotification();
                 }, 3000);
 
                 setTimer(newTimer);
             }, 100);
         },
-        [hideToast],
+        [hideNotification],
     );
 
     useEffect(() => {
@@ -63,7 +63,7 @@ export const NotificationProvider: FC<{ children: ReactNode }> = ({ children }) 
     }, [timer]);
 
     return (
-        <NotificationContext.Provider value={{ notificationData, setToast, hideToast, isVisible }}>
+        <NotificationContext.Provider value={{ notificationData, setNotification, hideNotification, isVisible }}>
             {children}
         </NotificationContext.Provider>
     );

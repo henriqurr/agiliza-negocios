@@ -1,13 +1,13 @@
 .notificationWrapper {
     align-items: center;
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     color: #FFF;
     font-size: 0.875rem;
     font-weight: bold;
     gap: 10px;
-    min-height: 47px;
-    min-width: 200px;
+    min-height: 50px;
+    min-width: 150px;
     opacity: 0;
     overflow: hidden;
     padding: 10px 30px;
@@ -19,7 +19,6 @@
 
     .iconWrapper {
         padding-right: 10px;
-        border-right: 1px solid #FFF;
 
         svg {
             font-size: 1.6rem;
@@ -38,6 +37,10 @@
 
     &.error {
         background: rgba(226, 26, 11, 0.8);
+    }
+
+    &.warning {
+        background: goldenrod;
     }
 
     &.loading {

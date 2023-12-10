@@ -63,7 +63,7 @@ const InterestChart: FC = () => {
                     {
                         label: 'Interesse em fechar negócio',
                         data: [96, 4], // Assumindo que os 4% representam o restante até 100%
-                        backgroundColor: ['gold', 'black'],
+                        backgroundColor: ['goldenrod', 'black'],
                     },
                 ],
             }}

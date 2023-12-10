@@ -58,7 +58,7 @@ const ClosureChart: FC = () => {
                     {
                         label: 'Fechamento de negócios',
                         data: [52, 48],
-                        backgroundColor: ['gold', 'black'],
+                        backgroundColor: ['goldenrod', 'black'],
                     },
                 ],
             }}

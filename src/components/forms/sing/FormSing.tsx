@@ -56,31 +56,34 @@ const FormSing: FC = () => {
     const handleSubmit = async (event: FormEvent) => {
         try {
             event.preventDefault();
-            setInvalidFields({});
-            setState('loading');
 
-            // const response = await fetch('/api/sendEmail', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     },
-            //     body: JSON.stringify(data),
-            // });
+            if (state !== 'loading') {
+                setInvalidFields({});
+                setState('loading');
 
-            // const dataResponse = await response.json();
-            // console.log(dataResponse.message);
+                // const response = await fetch('/api/sendEmail', {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify(data),
+                // });
 
-            // if (response.ok) {
-            //     setState('success');
-            // } else {
-            //     setState('error');
-            // }
+                // const dataResponse = await response.json();
+                // console.log(dataResponse.message);
 
-            await new Promise((resolveInner) => {
-                setTimeout(resolveInner, 3000);
-            });
+                // if (response.ok) {
+                //     setState('success');
+                // } else {
+                //     setState('error');
+                // }
 
-            setState('success');
+                await new Promise((resolveInner) => {
+                    setTimeout(resolveInner, 3000);
+                });
+
+                setState('success');
+            }
         } catch (error) {
             console.error('Erro ao enviar o formulário:', error);
             setState('error');
