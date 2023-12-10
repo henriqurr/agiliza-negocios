@@ -7,7 +7,7 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
-const options: ChartOptions = {
+const options: ChartOptions<'doughnut'> = {
     responsive: true,
     plugins: {
         legend: {
@@ -38,8 +38,8 @@ const options: ChartOptions = {
                 size: 16,
                 weight: 'bold',
             },
-            formatter: (value: any, context: any) => {
-                const total = context.chart.data.datasets[0].data.reduce((acc, val) => acc + val, 0);
+            formatter: (value: number, context: any) => {
+                const total = context.chart.data.datasets[0].data.reduce((acc: number, val: number) => acc + val, 0);
                 const percentage = (value / total) * 100;
                 return percentage.toFixed(2) + '%';
             },

@@ -4,7 +4,6 @@ import React, { ChangeEvent, FC, FormEvent, FormEventHandler, useState } from 'r
 import Input from '@/components/input/Input';
 
 import Button from '@/components/button/Button';
-import IconifyIcon from '@/components/iconify/IconifyIcon';
 
 import styles from './styles.module.scss';
 import Link from 'next/link';

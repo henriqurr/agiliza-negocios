@@ -51,7 +51,7 @@ export const NotificationProvider: FC<{ children: ReactNode }> = ({ children }) 
                 setTimer(newTimer);
             }, 100);
         },
-        [timer, hideToast],
+        [hideToast],
     );
 
     useEffect(() => {

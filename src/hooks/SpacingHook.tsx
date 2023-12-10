@@ -50,7 +50,7 @@ const useSideSpacing = () => {
             window.removeEventListener('resize', debouncedUpdateSpacing);
             window.removeEventListener('orientationchange', debouncedUpdateSpacing);
         };
-    }, []);
+    }, [debouncedUpdateSpacing, updateSpacing]);
 
     return spacing;
 };
