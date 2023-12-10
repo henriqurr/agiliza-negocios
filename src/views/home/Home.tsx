@@ -87,8 +87,7 @@ export default function Home(): ReactNode {
                                 className={styles.logo}
                                 width={200}
                                 height={200}
-                                quality={100}
-                                priority
+                                loading='lazy'
                             />
                         </div>
                     </div>
@@ -150,16 +149,6 @@ export default function Home(): ReactNode {
                     <SwiperTeam />
                 </div>
             </section>
-
-            {/* <section className={styles.teamSection}>
-                <div data-container-fluid>
-                    <div data-container>
-                        <div className={styles.content}>
-                            <h5 className={styles.title}>Duvida? Fale conosco</h5>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
 
             <Footer />
         </>
